@@ -1,0 +1,149 @@
+$mainColor: #28231D;
+$onHover: #E3242B;
+$amazon: #f3d078;
+$link: rgb(0, 140, 255);
+.loginPage{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 16px;
+    gap:15px;
+    position: relative;
+    .loaderb{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6); /* Black with 80% opacity */
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .registerArea{
+        height: 70vh;
+        width: 350px;
+        border: 1px solid lightgray;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px;
+        position: relative;
+        .servererror{
+            color: $onHover;
+            text-align: center;
+            font-size: 12PX;
+            position: absolute;
+            width: 100%;
+            top: 5px;
+        }
+        .title{
+            font-weight: 500;
+            font-size: 30px;
+        }
+        .fname{
+           width: 100%;
+           display: flex;
+           flex-direction: column;
+           position: relative;
+           .error{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 12px;
+            background-color: white;
+            color: $onHover;
+            padding: 2px;
+           }
+           input{
+            padding: 7px 15px;
+            border-radius: 5px;
+            border: 1px solid rgb(196, 194, 194);
+            outline: none;
+           }
+           .name{
+            font-weight: 500;
+           }
+           .passadvice{
+            font-size: 12px;
+            padding-left: 5px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            font-style: italic;
+            span{
+                font-size: 12px;
+            }
+           }
+           .termsandconditions{
+            margin-top: 10px;
+            font-size: 12px;
+            span{
+                color: $link;
+                cursor: pointer;
+            }
+           }
+           button{
+            outline: none;
+            padding: 7px 15px;
+            border: 1px solid $amazon;
+            border-radius: 5px;
+            background: $amazon;
+            color: $mainColor;
+            cursor: pointer;
+           }
+           .divider {
+            width: 50%;
+            margin: 20px auto;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)); /* Adjust the gradient as needed */
+          }
+          .termsandconditions1{
+            margin-top: 10px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            span{
+                color: $link;
+                cursor: pointer;
+            }
+           }
+          
+        }
+        .phone{
+            .inputarea{
+                display: flex;
+                align-items: center;
+                border: 1px solid rgb(196, 194, 194);
+                // padding-left: 15px;
+                border-radius: 5px;
+                padding: 0px;
+                input{
+                   flex: 1; 
+                   border: none;
+                   appearance: none;
+                }
+                .phoneinput::-webkit-outer-spin-button,
+                .no-arrows::-webkit-inner-spin-button {
+                  display: none;
+                }
+                
+
+                span{
+                    border-right:1px solid rgb(196, 194, 194);
+                    padding: 0px 5px;
+                    font-size: 12px;
+                    color: gray;
+                }
+            }
+        }
+    }
+    .conclusion{
+        font-size: 12px;
+    }
+}

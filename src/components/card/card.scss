@@ -1,0 +1,56 @@
+$mainColor: #28231D;
+$onHover: #E3242B;
+.card{
+    height: 80vh;
+    display: flex;
+    border: 1px solid rgb(240, 237, 237);
+    .left{
+        flex: 2;
+        display: flex;
+        .detailsarea{
+            flex: 1px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            .title{
+                font-size: 24px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+            .subarea{
+                padding-left: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                .subcategory{
+                    border-bottom: 1px solid rgb(230, 228, 228);
+                    padding-bottom:5px ;
+                    cursor: pointer;
+                    &:hover{
+                        color: $onHover;
+                    }
+                }
+            }
+        }
+        .coverimg{
+            width: 40%;
+            background-color: green;
+            height: 80vh;
+            display: flex; /* Ensures the image takes up the available space */
+            justify-content: center; /* Centers the image horizontally */
+            align-items: center; /* Centers the image vertically */
+            .cover{
+                height: 100%;
+                width: 190%;
+                object-fit: cover;
+            }
+            
+        }
+    }
+    .right{
+        flex: 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

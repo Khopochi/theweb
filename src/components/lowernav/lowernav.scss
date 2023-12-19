@@ -1,0 +1,110 @@
+$mainColor: #28231D;
+$onHover: #E3242B;
+.lowernav{
+    position: relative;
+    padding: 10px 30px;
+    display: flex;
+    gap: 15px;
+    border: 1px solid rgb(223, 220, 220);
+    align-items: center;
+    .category{
+        background-color: $onHover;
+        color: white;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        &:hover{
+            
+        }
+        .arrowdownicon{
+            // color: gray;
+        }
+    }
+    .item{
+        cursor: pointer;
+        font-size: 13px;
+        &:hover{
+            color: $onHover;
+        }
+    }
+    .itemLine{
+        color: rgb(230, 226, 226);
+        font-weight: 300;
+        font-size: 12px;
+    }
+    .super{
+        position: absolute;
+        width: 50%;
+        min-height: 50vh;
+        background-color: white;
+        z-index: 99999999999;
+        bottom: 0;
+        left:30px;
+        transform: translateY(100%);
+        display: flex;
+        background: transparent;
+        
+        .listcat{
+            display: flex;
+            width: 25%;
+            border: 1px solid rgb(223, 220, 220);
+            flex-direction: column;
+            padding: 16px;
+            gap: 10px;
+            background-color: white;
+            .itemlistcat{
+                display: flex;
+                cursor: pointer;
+                .left{
+                    flex:1;
+                    font-size: 14px;
+                    cursor: pointer;
+                    display: flex;
+                    gap: 5px;
+                    &:hover{
+                        color: $onHover;
+                    }
+                }
+                .right{
+                    font-size: 10px;
+                }
+            }
+        }
+        .superright{
+            background-color: white;
+            flex: 1;
+            margin: 20px 0px;
+            border: 1px solid lightgray;
+            border-left: none;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding: 16px;
+            display: grid;
+            row-gap: 20px;
+            column-gap: 2px;
+            align-items: start;
+            align-content: flex-start;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+            .singleSub{
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                font-size: 14px;
+                .subsubcat{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+                }
+                .title{
+                    font-weight: 500;
+                    font-size: 16px;
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.Paid{
+    background-color: green;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Packaged{
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Transit{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Delivered{
+    background-color: rgb(5, 5, 94);
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view{
+    cursor: pointer;
+    color: rgb(0, 153, 255);
+    font-size: 13px;
+}

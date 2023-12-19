@@ -1,0 +1,103 @@
+$mainColor: #28231D;
+$onHover: #E3242B;
+.cardproduct{
+    position: relative;
+    display: flex;
+    height: 40vh;
+    border: 1px solid rgb(238, 236, 236);
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    &:hover .rawImage {
+        transform: scale(1.1); // Zooming in the image
+      }
+    .productimage{
+        border-bottom: 1px solid rgb(238, 236, 236);
+        height: 25vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .imageWrapper{
+            width: 80%;
+            height: 80%;
+            // background-color: red;
+            overflow: hidden;
+            .rawImage {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                cursor: pointer;
+                transition: transform 0.3s ease; // Adding a smooth transition
+            
+                &:hover {
+                  transform: scale(1.1); // Zooming in the image
+                }
+              }
+
+        }
+    }
+    .productDetails{
+        flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .upper{
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 0px;
+                align-items: center;
+                .title{
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+                .productname{
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+            .lower{
+                display: flex;
+                justify-content: space-between;
+                padding: 0px 30px;
+                align-items: center;
+                .addtocart{
+                    background-color: $onHover;
+                    padding: 5px 10px;
+                    color: white;
+                    font-size: 12px;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: $mainColor;
+                    }
+                }
+                .price{
+                    font-size: 15px;
+                    font-weight: 500;
+                    span{
+                        font-size: 12px;
+                    }
+                }
+            }
+            .last{
+                margin-top: 20px;
+                color: $onHover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+            }
+    }
+    .instock{
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 40%;
+        background-color: $mainColor;
+        color: white;
+        z-index: 9999;
+        padding: 5px 10px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+}

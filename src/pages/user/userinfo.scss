@@ -1,0 +1,49 @@
+.userinfo{
+  max-height: 100vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  .supercontainerinfo{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    .conatinerinfo{
+      width: 50vw;
+      border:1px solid lightgray;
+      border-top: none;
+      height: 100%;
+      display: flex;
+      .leftinfo{
+          border-right: 1px solid rgb(239, 239, 239);
+          flex: 1;
+          padding: 16px;
+          display: flex;
+          justify-content: center;
+          font-size: 50px;
+          color:rgb(190, 190, 190);
+          align-items: center;
+      }
+      .rightinfo{
+        flex: 2;
+        padding: 16px;
+        display: flex;
+        gap: 10px;
+        // align-items: center;
+        .details{
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          font-size: 13px;
+          .title{
+            font-weight: 700;
+          }
+
+        }
+        .edit{
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+$mainColor: #28231D;
+$onHover: #E3242B;
+.headerslider{
+    height: 40vh;
+    position: relative;
+    .transbkd{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(to bottom,rgba(255,0,0,0), rgb(8, 8, 8));
+    }
+    .sliderButtons{
+        position: absolute;
+        bottom: 30px;
+        left: 60px;
+        display: flex;
+        gap: 15px;
+        z-index: 1000;
+        // background: linear-gradient(
+        //     to right,
+        //     rgba(0, 0, 0, 0),
+        //     rgba(0, 0, 0, 0.5),
+        //     rgba(0, 0, 0, 0)
+        // );
+        display: flex;
+        align-items: center;
+        height: 50px;
+        .span{
+            width: 45px;
+            height: 4px;
+            background-color: rgb(241, 234, 234);
+            cursor: pointer; 
+        }
+        .spanActive{
+            width: 45px;
+            height: 4px;
+            background-color: $onHover;
+            cursor: pointer; 
+        }
+    }
+}

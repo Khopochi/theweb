@@ -1,0 +1,183 @@
+$mainColor: #28231D;
+$onHover: #E3242B;
+
+.navbar{
+    background-color:  white;
+    z-index: 999;
+    padding: 20PX 30PX;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .upperDiv{
+        display:flex;
+        justify-content: space-between;
+        gap: 15px;
+        align-items: center;
+        .logoDiv{
+            // flex: 1;
+            // text-align: right;
+        }
+        .searchDiv{
+            flex: 3;
+            display: flex;
+            background-color: white;
+            border: 2px solid $onHover;
+            border-radius: 50px;
+            color: black;
+            align-items: center;
+            padding: 0px 20px;
+            position: relative;
+            .searchlist {
+                padding: 10px;
+                position: absolute;
+                max-height: 50vh;
+                min-width: 30VW;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                background-color: white;
+                width: 40px;
+                bottom: 0;
+                left: 20px;
+                transform: translateY(100%); /* Replace 100% with the desired distance from the bottom */
+                z-index: 999999999999999999;
+                border: 1px solid lightgray;
+                gap: 8px;
+                overflow-y: scroll;
+                .closelistsearch{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    .searchsuggest{
+                        font-weight: 500;
+                        font-size: 13px;
+                    }
+                    .closemark{
+                        font-size: 12px;
+                        cursor: pointer;
+                    }
+                }
+                .singleterm{
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    align-items: center;
+                    .word{
+                        font-size: 13px;
+                        cursor: pointer;
+                        &:hover{
+                            color: $onHover;
+                        }
+                    }
+                    .type{
+                        font-size: 10px;
+                        color: $onHover;
+                    }
+                }
+              }::-webkit-scrollbar {
+                width: 1px;
+              }
+              
+              ::-webkit-scrollbar-track {
+                background: white;
+              }
+              
+              ::-webkit-scrollbar-thumb {
+                background: white;
+              }
+              
+              .searchlist:hover::-webkit-scrollbar-thumb {
+                background: gray;
+              }
+                                         
+            .search{
+                flex: 1;
+                height: 40px;
+                background: transparent;
+                border: none;
+                outline: none;
+            }
+            .searchIcon{
+                font-size: 24px;
+                color: $mainColor;
+                cursor: pointer;
+                &:hover{
+                    color: $onHover;
+                }
+            }
+        }
+        .toolsDiv{
+            flex: 2;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            .country{
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                .flag{
+                    font-size: 15px;
+                }
+                .currency{
+                    font-size: 13px;
+                    .mwk{
+                        font-size: 10px;
+                    }
+                }
+            }
+            .register{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                .icon{
+                    font-size: 25px;
+                }
+                .words{
+                    font-size: 13px;
+                    .welcome{
+                        font-weight: 500;
+                    }
+                    .user{
+                        cursor: pointer;
+                    }
+                    .signin{
+                      .text1, .text2{
+                            cursor: pointer;
+                            &:hover{
+                                color: $onHover;
+                            }
+                      }  
+                    }
+                }
+            }
+            .cart22{
+                display: flex;
+                cursor: pointer;
+                gap: 5px;
+                align-items: center;
+                .aCart{
+                    font-size: large;
+                }
+                .words{
+                    .count{
+                        background-color: $onHover;
+                        color: white;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 20px;
+                        height: 20px;
+                        font-size: 12px;
+                    }
+                    .cartWord{
+                        font-size: 13PX;
+
+                    }
+                }
+
+            }
+        }
+        
+    }
+}

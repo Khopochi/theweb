@@ -1,0 +1,364 @@
+$mainColor: #28231D;
+$onHover: #E3242B;
+$amazongreen: #007185;
+$amazon: #f3d078;
+$amazonorange: #FF8F00;
+.viewproductcard{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .maincard{
+        height: 70vh;
+        display: flex;
+        border-bottom: 1px solid lightgray;
+        border-bottom-right-radius: 8px;
+
+        .left{
+            flex: 2;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20PX;
+            .thumbnails{
+                width: 10%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                justify-content: center;
+                .thumbcover{
+                    height: 10vh;
+                    width: 80%;
+                    border: 1px solid lightgray;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    &:hover .thumb{
+                        transform: scale(0.9); // Zooming in the image
+                      }
+                    .thumb{
+                        width: 100%;
+                        object-fit: cover;
+                        transition: transform 0.3s ease; // Adding a smooth transition
+
+                    }
+                }
+            }
+            .actualimage{
+                width: 90%;
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                .activeimage{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+        .middle{
+            flex: 3;
+            padding: 0px 16px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            margin-right: 10px;
+            // gap: 2px;
+            .title{
+                font-size: 30px;
+                font-weight: 500;
+            }
+            .instock{
+                color: $amazongreen ;
+                // font-weight: 500;
+            }
+            .rating{
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                .stars{
+                    font-size: 12px;
+                }
+            }
+            .divider {
+                width: 80%;
+                margin: 20px auto;
+                border: none;
+                height: 0.5px;
+                background: linear-gradient(to right, rgba(41, 40, 40, 0), rgba(37, 37, 37, 0.5), rgba(32, 32, 32, 0)); /* Adjust the gradient as needed */
+              }
+              .details{
+                background-color: $onHover;
+                color: white;
+                width: 10%;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: 500;
+              }
+              .price{
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                margin-top: 10PX;
+                .upper{
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    .discount{
+                        display: flex;
+                        gap: 5px;
+                        // align-items: center;
+                        // background-color: yellow;
+                        .percent{
+                            color: $onHover;
+                            font-size: 24px;
+                            font-weight: 300;
+                            flex: 1;
+                        }
+                        .disco{
+                            font-size: 12px;
+                            // background-color: red;
+                            flex: 1;
+                            align-self: flex-end;
+                        }
+                    }
+                    .price1{
+                        display: flex;
+                        .actualprice{
+                            font-size: 24px;
+                        }
+                        .mwk{
+                            font-size: 12px;
+                        }
+                    }
+
+                }
+                .lower{
+                    font-size: 12px;
+                    display: flex;
+                    gap: 10px;
+                    .oldprice{
+                        text-decoration: line-through;
+                    }
+                }
+              }
+        }::-webkit-scrollbar {
+            width: 4px;
+          }
+          
+          ::-webkit-scrollbar-track {
+            background: white;
+          }
+          
+          ::-webkit-scrollbar-thumb {
+            background: white;
+          }
+          
+          .middle:hover::-webkit-scrollbar-thumb {
+            background: gray;
+          }
+        .right{
+            flex: 1;
+            border-top: 1px solid lightgray;
+            border-left: 1px solid lightgray;
+            border-right: 1px solid lightgray;
+            border-bottom-right-radius: 8px;
+            padding:16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .price{
+                display: flex;
+                .actualprice{
+                     font-size: 24px;
+                }
+                .mwk{
+                    font-size: 10px;
+                }
+            }
+            .instockright{
+                font-size: 20px;
+                color: $amazongreen;
+            }
+            .shipping{
+                font-size: 13px;
+                color: black;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                .townbody{
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    z-index: 99999;
+                    background-color: white;
+                    min-height: 10vh;
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+                }
+                .district{
+                    cursor: pointer;
+                }
+                .title{
+                    color: $amazongreen;
+                    font-weight: 500;
+                    font-size: 13px;
+                }
+                .items{
+                    display: flex;
+                    flex-direction: column;
+                    span{
+                        display: flex;
+                        gap: 5px;
+                        font-size: 14px;
+                        span{
+                            display: flex;
+                            align-items: center;
+                        }
+                        .icon{
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .shipcost{
+                    margin-top: 10px;
+                    .title{
+                        font-size: 13px;
+                        display: flex;
+                        justify-content: space-between;
+                        .change{
+                            font-size: 10px;
+                            cursor: pointer;
+                            color: black;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+            .quantity{
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                .title{
+                    font-size: 13px;
+                }
+                .buttons{
+                    width: 40%;
+                    border: 1px solid lightgray;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    .minus{
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 5px;
+                        background-color: rgb(238, 237, 237);
+                        cursor: pointer;
+                        border: none;
+                        height: 30px;
+                        -webkit-touch-callout: none; /* iOS Safari */
+                        -webkit-user-select: none; /* Safari */
+                        -khtml-user-select: none; /* Konqueror HTML */
+                        -moz-user-select: none; /* Old versions of Firefox */
+                            -ms-user-select: none; /* Internet Explorer/Edge */
+                                user-select: none; 
+
+                    }
+                    .amount{
+                        flex: 2;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        // padding: 5px;
+                    }
+                    .plus{
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 5px;
+                        background-color: rgb(238, 237, 237);
+                        cursor: pointer;
+                        height: 30px;
+                        border: none;
+                        -webkit-touch-callout: none; /* iOS Safari */
+                        -webkit-user-select: none; /* Safari */
+                        -khtml-user-select: none; /* Konqueror HTML */
+                        -moz-user-select: none; /* Old versions of Firefox */
+                            -ms-user-select: none; /* Internet Explorer/Edge */
+                                user-select: none; 
+                    }
+
+                }
+            }
+            .addtocart{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                gap: 5px;
+                .itemincart{
+                    color: #007185;
+                    display: flex;
+                    gap: 5px;
+                    align-items: center;
+                    font-size: 13px;
+                }
+                button{
+                    width: 100%;
+                    outline: none;
+                    padding: 7px 15px;
+                    border: 1px solid $amazon;
+                    border-radius: 5px;
+                    background: $amazon;
+                    color: black;
+                    cursor: pointer;
+                }
+                .buynow{
+                    background: $amazonorange;
+                }
+            }
+            .delivary{
+                display: flex;
+                gap: 15px;
+                font-size: 13px;
+                .left-d{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                }
+                .right-d{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    .speed{
+                        color: $amazonorange;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .divider {
+                width: 80%;
+                margin: 10px auto;
+                border: none;
+                height: 0.5px;
+                background: linear-gradient(to right, rgba(41, 40, 40, 0), rgba(37, 37, 37, 0.5), rgba(32, 32, 32, 0)); /* Adjust the gradient as needed */
+              }
+              .dividerr {
+                width: 80%;
+                margin: 10px auto;
+                border: none;
+                height: 0.5px;
+                background: linear-gradient(to right, rgba(41, 40, 40, 0), rgba(37, 37, 37, 0.5), rgba(32, 32, 32, 0)); /* Adjust the gradient as needed */
+              }
+        }
+
+    }
+}

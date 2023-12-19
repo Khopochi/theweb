@@ -1,0 +1,77 @@
+.caryview{
+    position: relative;
+    .loader{
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 9999999999;
+        background-color: white;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    };
+}
+.cartContainer{
+    display: flex;
+    min-height: 80vh;
+    justify-content: center;
+    .holder{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .top{
+            background-color: rgb(244, 242, 242);
+            padding: 16px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            .id, .totalcary{
+                display: flex;
+                gap: 15px;
+                .hdr{
+                    display: flex;
+                    flex-direction: column;
+                    font-weight: 500;
+
+                }
+                .numberaid{
+                    display: flex;
+                    flex-direction: column;
+
+                }
+            }
+        }
+        .middle{
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .title{
+                font-weight: 500;
+            }
+            .vcimages{
+                min-height: 150px;
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(8, 1fr);
+                img{
+                    width: 150px;
+                    height: 150px;
+                    object-fit: cover;
+                }
+            }
+        }
+        .down{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 16px;
+            .title{
+                font-weight: 500;
+            }
+        }
+    }
+}
