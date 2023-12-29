@@ -105,7 +105,9 @@ export const Product = () => {
                     </div>
                 </div>
                 <div className="superright">
-                    <InfiniteScroll dataLength={products?.length} next={fetchmore} hasMore={hasmore} scrollableTarget="window">
+                    <InfiniteScroll dataLength={products?.length} next={fetchmore} hasMore={hasmore} loader={<p style={{ textAlign: 'center', marginTop: '10px', color: '#E3242B' }}>
+                        Loading...
+                        </p>} scrollableTarget="window">
                         <div  id="products" className="right">
                                 {
                                     products.map((item,index)=>(

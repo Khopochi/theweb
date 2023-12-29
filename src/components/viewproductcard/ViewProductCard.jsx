@@ -50,13 +50,11 @@ export const ViewProductCard = () => {
         }
     }
     useEffect(()=>{
-        if(!product){
-            fetchProduct()
-        }
+        fetchProduct()
+        getTowns()
         if(user){
             getUser()
         }
-        getTowns()
     },[id])
     const onHoover = (photo) => {
         setCurrentPhoto(photo)
