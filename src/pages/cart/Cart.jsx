@@ -28,7 +28,7 @@ export const Cart = () => {
     // const [socket, setSocket] = useState(null)
     const [onlineUsers, setOnlineUsers] = useState([])
     useEffect(()=>{
-        socket.current = io("ws://localhost:8800")
+        socket.current = io("wss://api.jiabaili.shop")
     },[])
     useEffect(()=>{
         if(user){
@@ -38,7 +38,7 @@ export const Cart = () => {
         })
         }
     },[user?._id])
-    console.log(onlineUsers)
+    //console.log(onlineUsers)
 
 
     const [code, setCode] = useState(undefined)
@@ -177,6 +177,7 @@ export const Cart = () => {
         }
       }
 
+      //console.log(userCart)
       const [orderid, setorderid] = useState()
       const [userData, setUserData] = useState(null);
       // Function to fetch user data based on userId
@@ -186,7 +187,7 @@ export const Cart = () => {
           const response = await axios.get(process.env.REACT_APP_API_URL+"ordersubmitted/getsinglebyorderid/"+orderid)
           setUserData(response.data);
         } catch (error) {
-          console.error('Error fetching user data:', error);
+          //console.error('Error fetching user data:', error);
         }
       };
 
@@ -198,7 +199,7 @@ export const Cart = () => {
             setUserData(response.data);
             // Your logic with the fetched data
           } catch (error) {
-            console.error('Error fetching data:', error);
+            //console.error('Error fetching data:', error);
             // Handle the error as needed
           }
         };
@@ -210,18 +211,18 @@ export const Cart = () => {
         // Cleanup: Stop the interval after 1 minute (60,000 milliseconds)
         const timeoutId = setTimeout(() => {
           clearInterval(intervalId);
-          console.log('Interval stopped after 1 minute');
+          //console.log('Interval stopped after 1 minute');
         }, 60000);
     
         // Return cleanup function
         return () => {
           clearInterval(intervalId);
           clearTimeout(timeoutId);
-          console.log('Cleanup: Interval cleared');
+          //console.log('Cleanup: Interval cleared');
         };}
       }, [orderid]);
 
-      console.log(userData)
+      //console.log(userData)
 
       useEffect(()=>{
             if(userData){

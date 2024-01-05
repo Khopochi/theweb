@@ -10,7 +10,7 @@ const Completed = () => {
         <Navbar/>
         <div className="containerpay">
             <div className="icon"><FontAwesomeIcon icon={faCircleCheck} /></div>
-            <div className="word">Payment Received</div>
+            <div className="word">Payment Successful</div>
         </div>
       
     </div>

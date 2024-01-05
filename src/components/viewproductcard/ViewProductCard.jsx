@@ -7,6 +7,9 @@ import axios from 'axios';
 import parse from 'html-react-parser';
 import { AuthContext } from '../../context/AuthContext';
 import { faCircleCheck, faSquare, faSquareCheck } from '@fortawesome/free-regular-svg-icons';
+import './ImageZoom.css'; // Include your CSS file for styling
+
+
 
 
 export const ViewProductCard = () => {
@@ -168,9 +171,16 @@ export const ViewProductCard = () => {
 
 
 
+      ///statyqhshwjdw
+
+
+
+
       
   return (
-    <>
+    <>  
+
+
         {product && <div className="viewproductcard">
             <div className="history">Home - {product?.name}</div>
             <div className="maincard">
@@ -180,13 +190,13 @@ export const ViewProductCard = () => {
                         {
                             product?.photos?.map((pr,index)=>(
                                 <div onMouseOver={()=>onHoover(pr)} key={index} className="thumbcover">
-                                    <img src={process.env.REACT_APP_API_URL+"photos/"+pr} alt="" className="thumb" />
+                                    <img src={process.env.REACT_APP_API_URL+"photos/"+pr} alt="" className="thumb" /> 
                                 </div>  
                             ))
                         }
                     </div>
                     <div className="actualimage">
-                        <img src={process.env.REACT_APP_API_URL+"photos/"+currentPhoto} alt="" className="activeimage" />
+                        <img src={process.env.REACT_APP_API_URL+"/photos/"+currentPhoto} alt="" className="activeimage" />
                     </div>
                 </div>
                 <div className="middle">
