@@ -196,7 +196,7 @@ export const ViewProductCard = () => {
                         }
                     </div>
                     <div className="actualimage">
-                        <img src={process.env.REACT_APP_API_URL+"/photos/"+currentPhoto} alt="" className="activeimage" />
+                        <img src={process.env.REACT_APP_API_URL+"photos/"+currentPhoto} alt="" className="activeimage" />
                     </div>
                 </div>
                 <div className="middle">
