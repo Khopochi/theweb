@@ -10,6 +10,7 @@ import { SingleHotCat } from '../../components/hotcatgory/SingleHotCat';
 import { Card } from '../../components/card/Card';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
+import SearchCard from '../../components/searchcard/SearchCard';
 
 export const Home = () => {
 
@@ -68,7 +69,8 @@ export const Home = () => {
         <div className="trendingDiv">
           {
             products?.map((pr,i)=>(
-              <TrendingProduct key={i} data={pr}/>
+              // <TrendingProduct key={i} data={pr}/>
+              <SearchCard key={i} data={pr} />
             ))
           }
         </div>

@@ -16,10 +16,17 @@ import OTP from './pages/otp/OTP';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 import UserInfo from './pages/user/UserInfo';
+import { useMediaQuery } from 'react-responsive'
 // import './App.css';
 
 function App() {
   const {user} = useContext(AuthContext)
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' }); // You may adjust the maxWidth as needed
+
+  if (isMobile) {
+    window.location.href = 'https://mobile.jiabaili.shop';
+    return null; // Redirecting, so no need to render anything
+  }
 
   return (
     <div className="App">

@@ -2,6 +2,7 @@ import React from 'react';
 import './card.scss'
 import { CardProduct } from '../cardproduct/CardProduct';
 import { useNavigate } from 'react-router-dom';
+import SearchCard from '../searchcard/SearchCard';
 
 export const Card = ({data}) => {
     const coverimage = {
@@ -34,7 +35,7 @@ export const Card = ({data}) => {
         <div className="right">
             {
                 data.products.map((item,index)=>(
-                    <CardProduct key={index} data={item} />
+                    <SearchCard key={index} data={item} />
                 ))
             }
         </div>

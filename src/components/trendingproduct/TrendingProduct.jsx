@@ -17,7 +17,8 @@ export const TrendingProduct = ({data}) => {
         <div className="instock">{formatNumberWithCommas(data.quantity)} in Stock</div>
         <div className="productimage">
             <div className="imageWrapper">
-                <img className='rawImage' src={process.env.REACT_APP_API_URL+"photos/"+data.photos[0]} alt="" />
+                <img className='rawImage' src={"https://api.jiabaili.shop/api/photos/"+data.photos[0]} alt="" />
+                {/* <img className='rawImage' src={process.env.REACT_APP_API_URL+"photos/"+data.photos[0]} alt="" /> */}
             </div>
         </div>
         <div className="productDetails">

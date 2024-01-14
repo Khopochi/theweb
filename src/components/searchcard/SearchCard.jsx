@@ -196,7 +196,7 @@ const SearchCard = ({data}) => {
             {!adding && <AddShoppingCartIcon />}
             {adding && <ClipLoader color="#36d7b7" />}
         </div>
-        <img onClick={()=>navigate("/viewproduct/"+data._id, {state: {data}})} src={process.env.REACT_APP_API_URL+"photos/"+data.photos[0]} alt="" />
+        <img onClick={()=>navigate("/viewproduct/"+data._id, {state: {data}})} src={"https://api.jiabaili.shop/api/photos/"+data.photos[0]} alt="" />
       </div>
       <div onClick={()=>navigate("/viewproduct/"+data._id, {state: {data}})} className="details">
         <div className="name">{data.name}</div>

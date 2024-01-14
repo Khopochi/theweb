@@ -12,7 +12,7 @@ export const SingleHotCat = ({data}) => {
   return (
     <div onClick={()=>navigate("/viewproduct/"+data._id, {state: {data}})} className="singlehotcat">
         <div className="imageDiv">
-            <img src={process.env.REACT_APP_API_URL+"photos/"+data.photos[0]} alt="" className="catimg" />
+            <img src={"https://api.jiabaili.shop/api/photos/"+data.photos[0]} alt="" className="catimg" />
         </div>
         <div className="detailsDiv">
             <div className="upper">
