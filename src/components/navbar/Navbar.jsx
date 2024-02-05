@@ -8,6 +8,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
+import logo from '../../image/Jia Bai Li World-3.png'
 
 export const Navbar = () => {
     //navigation
@@ -103,7 +104,8 @@ export const Navbar = () => {
     <div className="navbar">
         <div className="upperDiv">
             <div className="logoDiv">
-                    JiaBaiLi supermarket
+                <img onClick={()=>navigate("/")} src={logo} alt="" />
+                    {/* JiaBaiLi supermarket */}
             </div>
             <div className="searchDiv">
                 {click && <div className="searchlist">

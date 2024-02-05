@@ -17,7 +17,7 @@ $amazonorange: #FF8F00;
         align-items: center;
         justify-content: center;
         background-color: rgba(0, 114, 170, 0.5);
-        z-index: 999;
+        z-index: 999999999999999999999999999999999999999999999999;
         .fadaiframe {
             width: 100%;
             height: 100%;
@@ -37,7 +37,7 @@ $amazonorange: #FF8F00;
         position: absolute;
         top: 0px;
         left: 0px;
-        z-index: 99999;
+        z-index: 9999999999999999999999999999999999999999999999;
         background-color: rgba(68, 68, 68, 0.6); /* Black with 80% opacity */
         width: 100%;
         height: 100%;
@@ -346,6 +346,8 @@ $amazonorange: #FF8F00;
                 top: 0px;
                 .rightfigure{
                     padding-left: 6px;
+                    font-size: 24px;
+                    font-weight: 500;
                     span{
                         font-size: 10px;
                     }
@@ -385,16 +387,205 @@ $amazonorange: #FF8F00;
                 .paymentnow{
                     margin-top: 30px;
                     button{
-                        width: 100%;
-                        padding: 8px;
-                        cursor: pointer;
-                        border: none;
-                        border-radius: 8px;
+                        flex: 1;
+                        margin-top: 10px;
+                        background: linear-gradient(to right, #e3242b, #ff7070); // Adjust the lighter reddish color
+                        padding: 10px;
+                        text-align: center;
                         color: white;
-                        background-color: $amazonorange;
+                        border-radius: 15px; // Add border radius for rounded corners
+                        font-size: 12px;
+                        font-weight: 500;
+                        border: none;
+                        width: 100%;
+                        cursor: pointer;
                     }
                 }
             }
         }
     }
 }
+.location{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99999999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .divbody{
+      width: 50vw;
+      min-height: 5vw;
+      background-color: white;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+      .addnumber{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 99999999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .childediv{
+          width: 60vw;
+          height: 5vw;
+          background-color: white;
+          padding: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .doneEnter{
+            text-align: center;
+            background-color: $onHover;
+            color: white;
+            padding: 4px;
+            font-size: 12px;
+            // height: 40px;
+          }
+        }
+  
+      }
+      .paymentoptions{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        .title{
+            font-size: 13px;
+            font-weight: 500;
+            color: $onHover;
+        }
+        .tickarea{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            .optionpay{
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                padding-left: 6px;
+                .wordpay{
+                    font-size: 13px;
+                }
+                .iconpay{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .paymentnow{
+      margin-top: 30px;
+      display: flex;
+      flex: 1;
+      button{
+        flex: 1;
+        margin-top: 10px;
+        background: linear-gradient(to right, #e3242b, #ff7070); // Adjust the lighter reddish color
+        padding: 10px;
+        text-align: center;
+        color: white;
+        border-radius: 15px; // Add border radius for rounded corners
+        font-size: 12px;
+        font-weight: 500;
+        border: none;
+      }
+  }
+      .info{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+  
+        .total{
+          font-size: 12px;
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+          .thading{
+            font-size: 14px;
+            color: $onHover;
+            font-weight: 500;
+          }
+          .tproduct{
+            display: flex;
+            // gap: 10px;
+            .rightp{
+              margin-left: 10px;
+            }
+          }
+          .ll{
+            margin-top: 10px;
+            font-size: 15px;
+            color: $onHover;
+            font-weight: 500;
+          }
+        }
+        .btn{
+          margin-top: 10px;
+          background: linear-gradient(to right, #e3242b, #ff7070); // Adjust the lighter reddish color
+          padding: 10px;
+          text-align: center;
+          color: white;
+          border-radius: 15px; // Add border radius for rounded corners
+          font-size: 12px;
+          font-weight: 500;
+        }
+      }
+      .closer{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+      .titlediv{
+        font-size: 14px;
+        font-weight: 500;
+        color: $onHover;
+  
+  
+      }
+      .titlediv1{
+        font-size: 12px;
+        font-weight: 500;
+        color: $amazongreen;
+        margin-top: 10px;
+      }
+      input{
+          padding: 5px 10px;
+          outline: none;
+          flex: 1;
+      }
+      .divresults{
+        display: flex;
+        flex-direction: column;
+        .resultavailable{
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          height: 70vh;
+          overflow-y: scroll;
+          .locationitem{
+            font-size: 14px;
+            border-bottom: 1px solid rgb(235, 235, 235);
+            padding: 8px 0px;
+          }
+  
+        }
+        .resultstitle{
+          margin-top: 15px;
+          font-size: 14px;
+          font-weight: 500;
+          color: $onHover;
+          
+          
+        }
+      }
+    }
+  
+  
+  }

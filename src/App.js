@@ -17,6 +17,7 @@ import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 import UserInfo from './pages/user/UserInfo';
 import { useMediaQuery } from 'react-responsive'
+import Terms from './pages/terms/Terms';
 // import './App.css';
 
 function App() {
@@ -24,9 +25,11 @@ function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' }); // You may adjust the maxWidth as needed
 
   if (isMobile) {
-    window.location.href = 'https://mobile.jiabaili.shop';
+    const currentPath = window.location.pathname.substring(1); // Remove leading '/'
+    window.location.href = `https://mobile.jiabaili.shop/${currentPath}`;
     return null; // Redirecting, so no need to render anything
   }
+  
 
   return (
     <div className="App">
@@ -36,6 +39,7 @@ function App() {
           <Route path='/register/' element={<Register/>} />
           <Route path='/login/' element={<Login />} />
           <Route path='/user/info/' element={<UserInfo />} />
+          <Route path='/terms/' element={<Terms/>} />
           <Route path='/categories/'>
               <Route path=':id' element={<Category/>} />
           </Route>
@@ -45,8 +49,7 @@ function App() {
           <Route path='/viewcart/' element={<Cart/>} />
           <Route path='/myorders/' element={<Order/>} />
           <Route path='/completed/' element={<Completed/>} />
-          {!user && <Route path='/otp/' element={<OTP/>} />}
-          {user && <Route path='/otp/' element={<Home/>} />}
+          <Route path='/ottp/' element={<OTP/>} />
           <Route path='/cartview/'>
               <Route path=':id' element={<CaryView/>} />
           </Route>

@@ -20,6 +20,9 @@ export const CategorySearch = () => {
         setLoader(true)
         try{
             const res = await axios.get(process.env.REACT_APP_API_URL+"product/categories/"+id)
+            if(res.data.products.length < 12){
+                sethasmore(false)
+            }
             setData(res.data)
             setProducts(res.data.products)
             let idss = []
@@ -46,6 +49,9 @@ export const CategorySearch = () => {
         try{
             const res = await axios.get(process.env.REACT_APP_API_URL+"product/searchproductscategory/"+ids+"/"+id)
             setProducts(products.concat(res.data))
+            if(res.data.length < 12){
+                sethasmore(false)
+            }
             console.log(res.data)
             let idss = []
             res.data.forEach((bits) => {

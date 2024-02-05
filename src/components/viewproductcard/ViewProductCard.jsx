@@ -284,8 +284,8 @@ export const ViewProductCard = () => {
                                 ))
                             }
                         </div>}
-                        <div className="title">Shipping</div>
-                        <div className="items">
+                        {/* <div className="title">Shipping</div> */}
+                        {/* <div className="items">
                             <span>
                                 <span onClick={()=>pickLocation("pick")} className="icon">{lock === 'pick' ? (
                                     <FontAwesomeIcon icon={faSquareCheck} />
@@ -302,7 +302,7 @@ export const ViewProductCard = () => {
                                 )}</span>
                                 <span className="word">Deliver to your district</span>
                             </span>
-                        </div>
+                        </div> */}
                         {selectedTown && <div className="shipcost">
                             <div className="title">
                                 <span className="destrict">Shipping Cost to {selectedTown.location}</span>
@@ -322,9 +322,9 @@ export const ViewProductCard = () => {
                         {(itemInCart(rUser?.cart, product._id)) && <div className="itemincart">
                             <span><FontAwesomeIcon icon={faCircleCheck} /></span> <span>Product in cart</span>
                         </div>}
-                        <button className='buynow'>
+                        {/* <button className='buynow'>
                             Buy now
-                        </button>
+                        </button> */}
                     </div>
                     <div className="delivary">
                         <div className="left-d">

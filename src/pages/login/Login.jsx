@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../image/Jia Bai Li World-3.png'
 
 
 export const Login = () => {
@@ -102,7 +103,7 @@ export const Login = () => {
             <BeatLoader color="hsla(42, 89%, 65%, 1)" />
         </div>}
         <div className="title">
-            Jiabaili Supeermaket
+            <img src={logo} alt="" />
         </div>
         <div className="registerArea">
             <div className="title">
@@ -132,7 +133,7 @@ export const Login = () => {
 
             <div className="fname">
                 <div className="termsandconditions">
-                By continuing, you agree to <span className='link'>JiaBaiLi's Supermarket Conditions of Use</span> and <span className='link'>Privacy Notice</span>.
+                By continuing, you agree to <span onClick={()=>navigate("/terms/")} className='link'>JiaBaiLi's Supermarket Conditions of Use</span> and <span onClick={()=>navigate("/terms/")} className='link'>Privacy Notice</span>.
                 </div>
             </div>
 
@@ -143,7 +144,7 @@ export const Login = () => {
 
             <div className="fname">
                 <div className="termsandconditions1">
-                    New to JiaBaiLi Online? <span className='link'>Create Account</span>
+                    New to JiaBaiLi Online? <span onClick={()=>navigate("/register/")} className='link'>Create Account</span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,54 @@
+// App.module.scss
+
+$mainColor: #28231D;
+$onHover: #E3242B;
+$amazongreen: #007185;
+$amazon: #f3d078;
+$amazonorange: #FF8F00;
+
+.container1 {
+  padding: 15px;
+  background-color: $mainColor;
+  color: $amazon;
+
+  header {
+    h1 {
+      color: $amazon;
+    }
+
+    p {
+      color: $amazongreen;
+    }
+  }
+
+  main {
+    h2 {
+      color: $amazon;
+    }
+
+    h3 {
+      color: $amazonorange;
+    }
+
+    p, ul {
+      color: $amazon;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  footer {
+    p {
+      color: $amazonorange;
+    }
+  }
+
+  
+}

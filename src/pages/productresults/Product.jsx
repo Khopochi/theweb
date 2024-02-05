@@ -20,6 +20,9 @@ export const Product = () => {
         setLoader(true)
         try{
             const res = await axios.get(process.env.REACT_APP_API_URL+"product/searchproduct/"+id)
+            if(res.data.products.length < 12){
+                sethasmore(false)
+            }
             setData(res.data)
             setProducts(res.data.products)
             let idss = []
@@ -44,6 +47,9 @@ export const Product = () => {
         console.log("Reached")
         try{
             const res = await axios.get(process.env.REACT_APP_API_URL+"product/searchproducts/"+ids+"/"+id)
+            if(res.data.length < 12){
+                sethasmore(false)
+            }
             setProducts(products.concat(res.data))
             console.log(res.data)
             let idss = []

@@ -6,6 +6,7 @@ import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../image/Jia Bai Li World-3.png'
 
 export const Register = () => {
     //console log
@@ -104,12 +105,16 @@ export const Register = () => {
             }
           try{
             setLoader(true)
-            const res = await axios.post(process.env.REACT_APP_API_URL+"user/register", data)
+            const tempuser = {
+              phonenumber: data.phonenumber,
+              code: getRandomNumber()
+            }
+            //console.log(tempuser)
+            const res = await axios.post(process.env.REACT_APP_API_URL+"user/temp", tempuser)
             setLoader(false)
-            if(!res.data.useravailable){
-              dispatch({type:"LOGIN_START"})
-              dispatch({type:"LOGIN_SUCCESS", payload: res.data})
-              navigate("/")
+            if(res.data.phonenumber){
+             
+              navigate("/ottp/", {state: {data}})
             }else{
                 setEP(true)
                 setWordPhone("Phone number already exist")            
@@ -126,6 +131,12 @@ export const Register = () => {
       };
     }
 
+    const getRandomNumber = () => {
+      // Generate a random number between 1000 and 9999
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      return randomNumber;
+    };
+
 
 
   return (
@@ -134,7 +145,7 @@ export const Register = () => {
             <BeatLoader color="hsla(42, 89%, 65%, 1)" />
         </div>}
         <div className="title">
-            Jiabaili Supeermaket
+            <img src={logo} alt="" />
         </div>
         <div className="registerArea">
             <div className="title">
@@ -179,7 +190,7 @@ export const Register = () => {
 
             <div className="fname">
                 <div className="termsandconditions">
-                By creating an account, you agree to <span className='link'>JiaBaiLi's Supermarket Conditions of Use</span> and <span className='link'>Privacy Notice</span>.
+                By creating an account, you agree to <span onClick={()=>navigate("/terms/")} className='link'>JiaBaiLi's Supermarket Conditions of Use</span> and <span onClick={()=>navigate("/terms/")} className='link'>Privacy Notice</span>.
                 </div>
             </div>
 
@@ -189,7 +200,7 @@ export const Register = () => {
 
             <div className="fname">
                 <div className="termsandconditions1">
-                    Already have an Account? <span className='link'>Sign in</span>
+                    Already have an Account? <span onClick={()=>navigate("/login/")} className='link'>Sign in</span>
                 </div>
             </div>
         </div>

@@ -32,18 +32,26 @@
 // OTP.js
 
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './otp.css'; // Import the CSS file
+import './otp.scss'; // Import the CSS file
 import { AuthContext } from '../../context/AuthContext';
 import { BeatLoader } from 'react-spinners';
 
+
+
 const OTP = () => {
-  const [values, setValues] = useState(['', '', '', '', '', '']);
+
+// import ReactGA from 'react-ga';
+  const [values, setValues] = useState(['', '', '', '']);
   const location = useLocation();
   const [userr, setUser] = useState(location.state?.data);
   const {user,loading, dispatch} = useContext(AuthContext)
   const navigate = useNavigate()
+
+  const [err,seterr] = useState()
+
+  
 
 
   const handleInputChange = (e, index) => {
@@ -57,21 +65,25 @@ const OTP = () => {
       document.getElementById(`otp-input-${index + 1}`).focus();
     }
   };
-
+console.log(values.join(""))
   const onSubmit = async () => {
     setLoader(true)
     dispatch({type:"LOGIN_START"})
     try {
       const otpValue = values.join('');
-      const res = await axios.post(process.env.REACT_APP_API_URL + "user/register/" + otpValue, userr);
-      if(res.data !== "Rubbish"){
+      const res = await axios.post(process.env.REACT_APP_API_URL + "user/register/"+otpValue+"/"+userr.phonenumber, userr);
+      if(res.data.useravailableOTP){
+          setLoader(false)
+          seterr("Invalid code")
+      }else if(res.data.useravailable){
+        setLoader(false)
+         seterr("Phonenumber already exist")
+      }else{
         dispatch({type:"LOGIN_SUCCESS", payload: res.data})
                         // console.log(res.data)
                         setLoader(false)
-                        navigate("/")
+                        navigate("/", { replace: true })
 
-      }else{
-        setLoader(false)
       }
     //   console.log(res.data);
     } catch (err) {
@@ -80,14 +92,17 @@ const OTP = () => {
   };
   const [loader, setLoader] = useState(false)
 
+
+
   return (
-    <div className='body'>
+    <div className='life'>
     {loader && <div className="loaderb">
             <BeatLoader color="hsla(42, 89%, 65%, 1)" />
         </div>}
     <div className="otp-container">
         
       <div className='h2'>Enter Code to Continue</div>
+      {err && <div className="error">{err}</div>}
       <div className="otp-input-container">
         {values.map((value, index) => (
           <input
@@ -101,7 +116,7 @@ const OTP = () => {
           />
         ))}
       </div>
-      <button onClick={onSubmit}>Submit</button>
+      <button className='buttonotp' onClick={onSubmit}>Submit</button>
     </div>
     </div>
   );

@@ -192,7 +192,7 @@ const SearchCard = ({data}) => {
                             <button onClick={()=>cancel()}>Cancel</button>
                         </div>
         </div>}
-        <div onClick={()=>Decide()} className="addcart">
+        <div onClick={()=>navigate("/viewproduct/"+data._id, {state: {data}})} className="addcart">
             {!adding && <AddShoppingCartIcon />}
             {adding && <ClipLoader color="#36d7b7" />}
         </div>
