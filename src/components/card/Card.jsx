@@ -17,15 +17,16 @@ export const Card = ({data}) => {
     <div className="card">
         <div className="left">
             <div className="detailsarea">
-                <div onClick={()=>navigate("/category/"+data.category._id+"/")} className="title">
+                <div onClick={()=>navigate("/categories/"+data.category._id+"/")} className="title">
                         {data.category.name}
                 </div>
                 <div className="subarea">
                     {
                         data.subcategories.map((item,index)=>(
-                            <div onClick={()=>navigate("/subcategories/"+item._id+"/")} key={index} className="subcategory">{item.name}</div>
+                            <div onClick={()=>navigate("/subproducts/"+item._id+"/")} key={index} className="subcategory">{item.name}</div>
                         ))
                     }
+                    <div onClick={()=>navigate("/categories/"+data.category._id+"/")}  className="subcategory">More...  </div>
                 </div>
             </div>
             <div style={coverimage}>

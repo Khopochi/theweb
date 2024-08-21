@@ -10,7 +10,7 @@ import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import logo from '../../image/Jia Bai Li World-3.png'
 
-export const Navbar = () => {
+export const Navbar = ({ trigger }) => {
     //navigation
     const {user} = useContext(AuthContext)
     const [searchWord, setSearchWord] = useState()
@@ -26,7 +26,7 @@ export const Navbar = () => {
     }
     useEffect(()=>{
         getCount()
-    },[])
+    },[trigger])
 
 
     //

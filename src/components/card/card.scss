@@ -1,7 +1,7 @@
 $mainColor: #28231D;
 $onHover: #E3242B;
 .card{
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     border: 1px solid rgb(240, 237, 237);
     .left{

@@ -4,7 +4,9 @@ import './trending.scss'
 export const Trending = () => {
   return (
     <div className="trending">
-        Trending products
+      <div className="trendingchild">
+            Trending products
+      </div>
     </div>
   )
 }

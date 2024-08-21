@@ -1,12 +1,24 @@
+$onHover: #E3242B;
 .home{
-    height: 100vh;
-    .trendingDiv{
-        padding: 0px 10vw;
-        display: grid;
-        gap: 15px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        min-height: 600px;
+    overflow-x: hidden;
+    position: relative;
+    .trendingdivparent{
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        background-color: rgb(241, 238, 238);
+        padding: 10px 0px;
+        .trendingDiv{
+            width: 70vw;
+            display: grid;
+            gap: 15px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            min-height: 600px;
+            background-color: white;
+            padding: 10px 10px;
+        }
     }
+
     .hotCategoryDiv{
         padding: 0px 10vw;
         display: grid;
@@ -17,10 +29,23 @@
     }
     .cardsarea{
         margin-top: 30px;
-        min-height: 80vh;
-        padding: 0px 10vw;
+        padding: 0px 15vw;
         display: flex;
         flex-direction: column;
         gap: 30px;
+    }
+    .loader{
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+        color: $onHover;
+        font-size: 78px;
+        z-index: 999;
     }
 }

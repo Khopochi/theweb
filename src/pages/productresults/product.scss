@@ -1,3 +1,4 @@
+$onHover: #E3242B;
 .ProductResults{
     display: flex;
     flex-direction: column;
@@ -14,14 +15,15 @@
       align-items: center;
       justify-content: center;
   }
-    .productContainer{
+    .productContainere{
         // height: 100vh;
         position: relative;
+    background-color: white;
         
         display: flex;
         align-items: center;
         justify-content: center;
-        .container1{
+        .container1e{
             width: 80vw;
             // background-color: rgb(216, 215, 215);
             display: flex;
@@ -58,6 +60,10 @@
                         display: flex;
                         gap: 5px;
                         font-size: 13px;
+                        cursor: pointer;
+                        &:hover{
+                          color: $onHover;
+                        }
                     }
                 }
             }::-webkit-scrollbar {

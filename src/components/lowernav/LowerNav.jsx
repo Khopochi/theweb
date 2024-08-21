@@ -46,7 +46,7 @@ export const LowerNav = () => {
   const tocategories = (idd) => {
     setright(false)
     setsuper(false)
-    navigate("/categories/"+idd)
+    navigate("/allproducts/"+idd)
   }
 
   return (

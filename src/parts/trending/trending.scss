@@ -1,6 +1,13 @@
 .trending{
-    padding: 10px 30px;
+    display: flex;
+    width: 100vw;
     font-size: 24px;
     font-weight: 500;
     margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+    .trendingchild{
+        width: 70vw;
+    }
 }

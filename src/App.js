@@ -26,7 +26,7 @@ function App() {
 
   if (isMobile) {
     const currentPath = window.location.pathname.substring(1); // Remove leading '/'
-    window.location.href = `https://mobile.jiabaili.shop/${currentPath}`;
+    window.location.href = `https://www.jiabaili.shop/${currentPath}`;
     return null; // Redirecting, so no need to render anything
   }
   
@@ -40,7 +40,7 @@ function App() {
           <Route path='/login/' element={<Login />} />
           <Route path='/user/info/' element={<UserInfo />} />
           <Route path='/terms/' element={<Terms/>} />
-          <Route path='/categories/'>
+          <Route path='/allproducts/'>
               <Route path=':id' element={<Category/>} />
           </Route>
           <Route path='/viewproduct/'>
@@ -56,10 +56,10 @@ function App() {
           <Route path='/search/'>
               <Route path=':id' element={<Product/>} />
           </Route>
-          <Route path='/subcategories/'>
+          <Route path='/subproducts/'>
               <Route path=':id' element={<Subcategory/>} />
           </Route>
-          <Route path='/category/'>
+          <Route path='/categories/'>
               <Route path=':id' element={<CategorySearch/>} />
           </Route>
         </Routes>

@@ -1,0 +1,114 @@
+.BannersMaster{
+    margin-top: 20px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .banners{
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        .thecitizens{
+            display: flex;
+            gap: 0.5vw;
+            .east{
+                width: 49.5vw;
+                height: 15vw;
+                background-color: red;
+                position: relative;
+                .carousel {
+                    // position: relative;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 300px; // Set the height of the carousel
+                }
+                
+                .slide {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 15vw;
+                    object-fit: cover;
+                    opacity: 0; // Initially hide all slides
+                    transition: opacity 0.5s ease; // Add transition for smooth fading
+                }
+                
+                .slide.active {
+                    opacity: 1; // Show active slide
+                }
+            }
+            .west{
+                width: 20vw;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5vw;
+                .top{
+                    height: 7.25vw;
+                    // background-color: red;
+                    img{
+                        height: 7.25vw;
+                        width: 100%;
+                        // object-fit: contain;
+                    }
+                }
+                .bottom{
+                    height: 7.25vw;
+                    // background-color: red;
+                    img{
+                        height: 7.25vw;
+                        width: 100%;
+                    }
+
+                }
+            }
+            
+        }
+        .thelowers{
+            display: flex;
+            margin-top: 30px;
+            flex-direction: column;
+            .thelowertop{
+                font-size: 15px;
+                font-weight: 700;
+            }
+            .thelowerBottom{
+                display: flex;
+                // background-color: red;
+                .shopdeeitem{
+                    display: flex;
+                    flex-direction: column;
+                    width: 7vw;
+                    overflow-x:hidden;
+                    border: 1px solid rgb(245, 244, 244);
+                    // justify-content: center;
+                    align-items: center;
+                    color: black;
+                    cursor: pointer;
+                    .shopdicon{
+                      width: 7vw;
+                      height: 7vw;
+                      overflow: hidden;
+                      // background-color: rgb(245, 244, 244);
+                      padding: 2px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      img{
+                        width: 4vw;
+                        height: 4vw;
+                        // background-color: rgb(245, 244, 244);
+                      }
+                    }
+                    .shopdeeword{
+                      font-size: 12px;
+                      font-weight: 500;
+                    }
+                  }
+            }
+            
+        }
+       
+    }
+}

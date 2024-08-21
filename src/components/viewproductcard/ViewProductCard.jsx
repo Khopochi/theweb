@@ -2,17 +2,18 @@ import React, { useContext, useEffect, useState } from 'react';
 import './viewproductcard.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import parse from 'html-react-parser';
 import { AuthContext } from '../../context/AuthContext';
 import { faCircleCheck, faSquare, faSquareCheck } from '@fortawesome/free-regular-svg-icons';
 import './ImageZoom.css'; // Include your CSS file for styling
+import { BeatLoader } from 'react-spinners';
 
 
 
 
-export const ViewProductCard = () => {
+export const ViewProductCard = ({ onTriggerEvent }) => {
     const {user} = useContext(AuthContext)
     const {id} = useParams()
     const location = useLocation()
@@ -117,6 +118,8 @@ export const ViewProductCard = () => {
         try{
             const res = await axios.post(process.env.REACT_APP_API_URL+"user/addtocart/"+user._id ,datatoPost)
             getUser()
+            setadding(false)
+            triggerEvent()
             
         }catch(err){
 
@@ -173,10 +176,10 @@ export const ViewProductCard = () => {
 
       ///statyqhshwjdw
 
-
-
-
-      
+      const navigate = useNavigate()
+      const triggerEvent = () => {
+        onTriggerEvent(); // Trigger the event with some data
+      };
   return (
     <>  
 
@@ -190,13 +193,13 @@ export const ViewProductCard = () => {
                         {
                             product?.photos?.map((pr,index)=>(
                                 <div onMouseOver={()=>onHoover(pr)} key={index} className="thumbcover">
-                                    <img src={process.env.REACT_APP_API_URL+"photos/"+pr} alt="" className="thumb" /> 
+                                    <img src={"https://api.jiabaili.shop/api/photos/"+pr} alt="" className="thumb" /> 
                                 </div>  
                             ))
                         }
                     </div>
                     <div className="actualimage">
-                        <img src={process.env.REACT_APP_API_URL+"photos/"+currentPhoto} alt="" className="activeimage" />
+                        <img src={"https://api.jiabaili.shop/api/photos/"+currentPhoto} alt="" className="activeimage" />
                     </div>
                 </div>
                 <div className="middle">
@@ -313,15 +316,15 @@ export const ViewProductCard = () => {
                     </div>
                     <div className="divider"></div>
                     <div className="addtocart">
-                        { (!(itemInCart(rUser?.cart, product._id)) && !adding) && <button onClick={()=>addToCart()}>
+                        { (user && !adding) && <button onClick={()=>addToCart()}>
                             Add to cart
                         </button>}
-                        { (!(itemInCart(rUser?.cart, product._id)) && adding) && <button>
-                            Adding...
+                        { (!user) && <button onClick={()=>navigate("/login/")}>
+                            Sign in
                         </button>}
-                        {(itemInCart(rUser?.cart, product._id)) && <div className="itemincart">
-                            <span><FontAwesomeIcon icon={faCircleCheck} /></span> <span>Product in cart</span>
-                        </div>}
+                        {adding && <button>
+                            <BeatLoader size={5} />
+                        </button>}
                         {/* <button className='buynow'>
                             Buy now
                         </button> */}

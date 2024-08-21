@@ -45,22 +45,47 @@ export const CategoryCard = () => {
         backgroundSize: 'cover',
     }
     //fetch not just anything but fetch
-    const [load,setLoad] = useState(true)
-    const {id} = useParams()
-    const [catData,setCatData] = useState()
-    const [products,setProducts] = useState()
-    const getDeepDetails = async () => {
-        const getDeepcat = await axios.get(process.env.REACT_APP_API_URL+"deepcategory/page/"+id)
-        setCatData(getDeepcat.data)
-        const getproducts = await axios.get(process.env.REACT_APP_API_URL+"product/getbydeeepid/"+id)
-        setProducts(getproducts.data)
-        setLoad(false)
-    } 
+    const [load, setLoad] = useState(true);
+  const { id } = useParams();
+  const [catData, setCatData] = useState(null);
+  const [products, setProducts] = useState([]);
 
-    useEffect(()=>{
-        setLoad(true)
-        getDeepDetails()
-    },[id])
+  const getDeepDetails = async () => {
+    try {
+      const getDeepcat = await axios.get(process.env.REACT_APP_API_URL + "deepcategory/page/" + id);
+      setCatData(getDeepcat.data);
+
+      const getproducts = await axios.get(process.env.REACT_APP_API_URL + "product/getbydeeepid/" + id);
+      setProducts(getproducts.data);
+
+      // Save data and the current id in sessionStorage
+      sessionStorage.setItem('cachedDeepCatId', id);
+      sessionStorage.setItem('cachedDeepCatData', JSON.stringify(getDeepcat.data));
+      sessionStorage.setItem('cachedDeepProducts', JSON.stringify(getproducts.data));
+
+      setLoad(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    // Check if cached data exists and if it matches the current id
+    const cachedDeepCatId = sessionStorage.getItem('cachedDeepCatId');
+    const cachedDeepCatData = sessionStorage.getItem('cachedDeepCatData');
+    const cachedDeepProducts = sessionStorage.getItem('cachedDeepProducts');
+
+    if (cachedDeepCatId && cachedDeepCatId === id && cachedDeepCatData && cachedDeepProducts) {
+      // Use cached data
+      setCatData(JSON.parse(cachedDeepCatData));
+      setProducts(JSON.parse(cachedDeepProducts));
+      setLoad(false);
+    } else {
+      // Fetch new data if the id is different or no cache exists
+      setLoad(true);
+      getDeepDetails();
+    }
+  }, [id]);
     //loader
 
 
