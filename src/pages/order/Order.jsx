@@ -17,7 +17,7 @@ const Order = () => {
 
     const getOrders = async () => {
         try{
-            const res = await axios.get(process.env.REACT_APP_API_URL+"ordersubmitted/getorder/"+user._id)
+            const res = await axios.get("https://api.jiabaili.shop/api/ordersubmitted/getorder/"+user._id)
             setOrders(res.data)
             setActiveselction(res.data)
             console.log(res.data)

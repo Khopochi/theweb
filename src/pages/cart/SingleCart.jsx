@@ -48,7 +48,7 @@ export const SingleCart = ({data, onDeleteItem}) => {
 
     </div>}
     <div className="left">
-        <img src={process.env.REACT_APP_API_URL+"photos/"+data.productimg} alt="" />
+        <img src={"https://api.jiabaili.shop/api/photos/"+data.productimg} alt="" />
     </div>
     <div className="middle">
         <div onClick={()=>nextpage()} className="title">{data.productname}</div>

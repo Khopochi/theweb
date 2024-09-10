@@ -284,23 +284,44 @@ export const Cart = () => {
        
         if(selectedPay === "airtel"){
           //////console.log(calculateTotalSub(carts,cost))
+          let num = parseInt(value, 10); 
+          if(value.length > 5){
             const orderinfo = {
-                userid: user._id,
-                cart: userCart,
-                total: calculateTotalSub(carts,cost),
-                status: "Waiting payment",
-                phone: numberfinal,
-                location: selectedl?.location  ? selectedl?.location : "Pick at Shop"
+              userid: user._id,
+              cart: userCart,
+              total: calculateTotalSub(carts,cost),
+              status: "Waiting payment",
+              phone: num,
+              location: selectedl?.location  ? selectedl?.location : "Pick at Shop"
             }
             setLoadingTop(true)
             try{
-                const res = await axios.post(process.env.REACT_APP_API_URL+"transaction/airtel",orderinfo)
+                const res = await axios.post("https://api.jiabaili.shop/api/transaction/airtel",orderinfo, {cache:"no-store"})
 
                 //add this
                 setorderid(res.data.data.transaction.id)
             }catch(err){
 
             }
+          }else{
+            const orderinfo = {
+              userid: user._id,
+              cart: userCart,
+              total: calculateTotalSub(carts,cost),
+              status: "Waiting payment",
+              phone: user.phonenumber,
+              location: selectedl?.location  ? selectedl?.location : "Pick at Shop"
+            }
+            setLoadingTop(true)
+            try{
+                const res = await axios.post("https://api.jiabaili.shop/api/transaction/airtel",orderinfo, {cache:"no-store"})
+
+                //add this
+                setorderid(res.data.data.transaction.id)
+            }catch(err){
+
+            }
+          }
         }else if(selectedPay === "STD"){
             const orderinfo = {
                 userid: user._id,

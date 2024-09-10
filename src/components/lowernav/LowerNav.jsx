@@ -59,7 +59,7 @@ export const LowerNav = () => {
                 Cat?.map((item,index)=>(
                   <div  onMouseOver={()=>onHoover(item._id)} key={index} className="itemlistcat">
                     <div className="left">
-                      <span className='icon'><CountertopsOutlinedIcon /></span>
+                      {/* <span className='icon'><CountertopsOutlinedIcon /></span> */}
                       <span onMouseOut={()=>setright(false)} onMouseOver={()=>onHoover(item._id)} className='name'>{item.name}</span>
                     </div>
                     <div className="right"><FontAwesomeIcon icon={faAnglesRight} /></div>

@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import logo from '../../image/Jia Bai Li World-3.png'
+import { ClipLoader } from 'react-spinners';
 
 export const Navbar = ({ trigger }) => {
     //navigation
@@ -16,10 +17,12 @@ export const Navbar = ({ trigger }) => {
     const [searchWord, setSearchWord] = useState()
     const navigate = useNavigate()
     const [count,setCount] = useState(0)
+    const [countload, setCountLoad] = useState(true)
     const getCount = async () => {
         try{
             const res = await axios.get(process.env.REACT_APP_API_URL+"user/countitems/"+user._id)
             setCount(res.data.numberOfItemsInCart)
+            setCountLoad(false)
         }catch(err){
 
         }
@@ -165,7 +168,8 @@ export const Navbar = ({ trigger }) => {
                         <ShoppingCartOutlinedIcon/>
                     </div>
                     <div className="words">
-                        <div className="count">{count}</div>
+                        {countload && <div className="count"><ClipLoader color='white' size={10} /></div>}
+                       {!countload && <div className="count">{count}</div>}
                         <div className="cartWord">Cart</div>
                     </div>
                 </div>
